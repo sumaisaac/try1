@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolution Results</title>
+</head>
+<body>
+    <h1>Resolution for: {{ user_issue }}</h1>
+
+    {% for source, resolution in results.items() %}
+        <div>
+            <h2>Source: {{ source }}</h2>
+            {% if resolution %}
+                <p><strong>Resolution Steps:</strong> {{ resolution }}</p>
+                <p><strong>Accuracy:</strong> {{ accuracy_scores[source] }}%</p>
+            {% else %}
+                <p>No resolution found.</p>
+            {% endif %}
+        </div>
+        <hr>
+    {% endfor %}
+
+    <a href="/">Go Back</a>
+</body>
+</html>
